@@ -53,8 +53,12 @@ def loadCam(args, id, cam_info, resolution_scale):
 
 def cameraList_from_camInfos(cam_infos, resolution_scale, args):
     camera_list = []
+    total_cams = len(cam_infos)
+    counter = 0.
 
     for id, c in enumerate(cam_infos):
+        counter += 1.
+        print(f"progress: {counter / total_cams} Loading camera {id} with image {c.image_name}")
         camera_list.append(loadCam(args, id, c, resolution_scale))
 
     return camera_list

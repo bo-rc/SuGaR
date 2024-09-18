@@ -16,7 +16,7 @@ import time
 
 def refined_training(args):
     CONSOLE = Console(width=120)
-
+    print(f'====================refined_training====================')
     # ====================Parameters====================
 
     num_device = args.gpu

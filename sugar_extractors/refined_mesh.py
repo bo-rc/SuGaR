@@ -12,6 +12,7 @@ from sugar_utils.spherical_harmonics import SH2RGB
 from rich.console import Console
 
 def extract_mesh_and_texture_from_refined_sugar(args):
+    print(f'extract_mesh_and_texture_from_refined_sugar')
     CONSOLE = Console(width=120)
 
     n_skip_images_for_eval_split = 8

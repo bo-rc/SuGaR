@@ -13,7 +13,7 @@ from sugar_utils.general_utils import PILtoTorch
 
 
 def load_gs_cameras(source_path, gs_output_path, image_resolution=1, 
-                    load_gt_images=True, max_img_size=1920, white_background=False,
+                    load_gt_images=True, max_img_size=5000, white_background=False,
                     remove_indices=[]):
     """Loads Gaussian Splatting camera parameters from a COLMAP reconstruction.
 
@@ -30,6 +30,7 @@ def load_gs_cameras(source_path, gs_output_path, image_resolution=1,
         List of GSCameras: List of Gaussian Splatting cameras.
     """
     image_dir = os.path.join(source_path, 'images')
+    print(f"image_dir: {image_dir}")
     
     with open(gs_output_path + 'cameras.json') as f:
         unsorted_camera_transforms = json.load(f)
@@ -62,7 +63,7 @@ def load_gs_cameras(source_path, gs_output_path, image_resolution=1,
     camera_transforms = sorted(unsorted_camera_transforms.copy(), key = lambda x : x['img_name'])
 
     cam_list = []
-    extension = '.' + os.listdir(image_dir)[0].split('.')[-1]
+    extension = '.png'
     if extension not in ['.jpg', '.png', '.JPG', '.PNG']:
         print(f"Warning: image extension {extension} not supported.")
     else:

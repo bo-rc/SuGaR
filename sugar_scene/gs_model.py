@@ -177,10 +177,12 @@ class GaussianSplattingWrapper:
     
     @property
     def image_height(self):
+        print(f"image: {self.cam_list[0].image_name}, height: {self.cam_list[0].image_height}")
         return self.cam_list[0].image_height
     
     @property
     def image_width(self):
+        print(f"image: {self.cam_list[0].image_name}, height: {self.cam_list[0].image_width}")
         return self.cam_list[0].image_width
     
     def render_image(

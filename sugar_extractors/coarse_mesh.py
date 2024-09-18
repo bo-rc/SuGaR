@@ -16,6 +16,7 @@ def extract_mesh_from_coarse_sugar(args):
     
     all_sugar_mesh_paths = []
 
+    print("extract_mesh_from_coarse_sugar")
     # ========== Parameters ==========
 
     use_train_test_split = True
